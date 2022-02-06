@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+	<h2>Rozdělení placení</h2> 
+	{% for person, percent in usage.items() %}
+	<ul>
+		<li>{{person}} - {{percent}}%</a></li>
+	</ul>
+	{% endfor %}
+</div>
+{% endblock %}
+

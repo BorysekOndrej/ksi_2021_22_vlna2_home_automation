@@ -1,3 +1,13 @@
+# Custom
+
+.env
+devices.json
+sun_*.json
+/.idea/
+
+
+# GitHub generated
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

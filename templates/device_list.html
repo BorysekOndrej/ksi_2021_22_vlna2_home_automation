@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+	<h2>Světla</h2> 
+	{% for room_name, url in lights.items() %}
+	<ul>
+		<li><a href="{{url}}">{{room_name}}</a>: <a href="{{url}}/toggle">Přepnout světlo</a></li>
+	</ul>
+	{% endfor %}
+
+	<h2>Ostatní zařízení</h2>
+	{% for room_name, url in devices.items() %}
+	<ul>
+		<li><a href="{{url}}">{{room_name}}</a></li>
+	</ul>
+	{% endfor %}
+</div>
+{% endblock %}
+

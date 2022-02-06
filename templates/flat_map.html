@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block header %}
+	<style type="text/css">
+		body, html {
+  			height: 100%;
+			margin: 0 0 0 0;
+		}
+		#byt
+		{
+			position: relative; /* This make the size of the children relative to this element, not the body. */
+			top: 30vh;
+			margin: auto;
+			background-color: #868686;
+			width: 100vh;
+			height: 50vh;
+		}
+		#byt > div
+		{
+			display:flex;
+			justify-content:center;
+			align-items:center;
+		}
+		#levyHorniPokoj
+		{
+			position: absolute;
+			height: 50%;
+			width: 20%;
+			background-color: #e59668;
+		}
+		#levyDolniPokoj
+		{
+			position: absolute;
+			top: 50%;
+			height: 50%;
+			width: 20%;
+			background-color: #7f68e5;
+		}
+		#pravyHorniPokoj
+		{
+			position: absolute;
+			left: 80%;
+			height: 50%;
+			width: 20%;
+			background-color: #e70a0a;
+		}
+		#pravyDolniPokoj
+		{
+			position: absolute;
+			left: 80%;
+			top: 50%;
+			height: 50%;
+			width: 20%;
+			background-color: #0cb6cc;
+		}
+		#levaSpolenaMistnost
+		{
+			position: absolute;
+			left: 20%;
+			height: 35%;
+			width: 30%;
+			background-color: #a6ff00;
+		}
+		#pravaSpolecnaMistnost
+		{
+			position: absolute;
+			left: 50%;
+			height: 35%;
+			width: 30%;
+			background-color: #f6b500;
+		}
+		#obyvak
+		{
+			position: absolute;
+			left: 20%;
+			top: 35%;
+			height: 65%;
+			width: 60%;
+			background-color: #f600b9;
+		}
+	</style>
+{% endblock %}
+
+{% block content %}
+<div id="byt">
+	<!-- Turing on {{ something|safe }} is great security risk. Here it's just make the difference from the template as small as posible. -->
+	<div id="levyHorniPokoj">{{ room_status["SobKarsob"]|safe }}</div>
+	<div id="pravyHorniPokoj">{{ room_status["LosKarlos"]|safe }}</div>
+	<div id="levaSpolenaMistnost">{{ room_status["Koupelna"]|safe }}</div>
+	<div id="pravaSpolecnaMistnost">{{ room_status["Kuchyň"]|safe }}</div>
+	<div id="pravyDolniPokoj">{{ room_status["ZelvickaJulie"]|safe }}</div>
+	<div id="levyDolniPokoj">{{ room_status["Karlik"]|safe }}</div>
+	<div id="obyvak">{{ room_status["Obyvák"]|safe }}</div>
+</div>
+{% endblock %}
