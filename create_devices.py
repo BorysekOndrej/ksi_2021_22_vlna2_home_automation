@@ -3,9 +3,9 @@ from urllib.parse import urljoin, quote_plus
 
 import requests
 
-from config import DEVICES_BASE_URL, DEVICES_TYPES, ROOMS, ROOMS_PUBLIC
+from config import DEVICES_BASE_URL, DEVICES_TYPES, ROOMS, ROOMS_PUBLIC, DEVICE_FILE
 
-
+# Inspired by solution of Marek Haba
 DEVICES = {key: {} for key in DEVICES_TYPES}
 
 
@@ -14,14 +14,14 @@ def create_device(device_type: str, room: str) -> str:
     data = json.loads(response.text)
     device_id = data["id"]
     
-    # Add a note about room
+    # Add a note, for example about the room
     notes = {"room": room}
     requests.post(urljoin(DEVICES_BASE_URL, f"device/{data['id']}/notes"), data=json.dumps(notes))
     return device_id
 
 
 def save_devices() -> None:
-    with open("devices.json", "w") as file:
+    with open(DEVICE_FILE, "w") as file:
         json.dump(DEVICES, file, indent=4)
 
 
